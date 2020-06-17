@@ -1,27 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>第一次搭建hexo</title>
-    <url>/2020/06/03/hello-world/</url>
-    <content><![CDATA[<p>Welcome to zrobiao’Hexo</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+    <title>个人网站部署-基于hero-next模版</title>
+    <url>/2020/06/10/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h3 id="建站前"><a href="#建站前" class="headerlink" title="建站前"></a>建站前</h3><p>通过之前的购买域名、租用的云服务器，到使用 node 环境的 hexo 下的 next 主题，进行个人网站的部署。前后花费了一年多的时间，只有这个时候才能更加看出我的懒惰，总是各种原因说辞（白花了一年时间来购买域名……）</p>
+<p>通过这次的个人网站部署，对于域名与云服务器的操作有了更加深的认识，一些配置问题折腾了很久，环境配置错误也让我深刻的意识到自己是多么的粗心大意，但网站部署后的喜悦还是无比的开心。</p>
+<p>接下来就让我愉快😂的为这次部署做一个总结吧</p>
+<h3 id="域名申请"><a href="#域名申请" class="headerlink" title="域名申请"></a>域名申请</h3><p>通过阿里云、腾讯云进行自己喜欢的域名进行购买，完全在于你开心，.com、.cn、.vip……都可以；</p>
+<p>在这我是腾讯云进行的域名购买</p>
+<h3 id="服务器租用"><a href="#服务器租用" class="headerlink" title="服务器租用"></a>服务器租用</h3><p>因为之前是为了进行小程序的开发，所以为了更加方便的开发（官方说的，其实应该也没多大影响），就与朋友一起双11租用了2年了云服务器，优惠买的配置开发绝对够了！</p>
+<h3 id="编写代码-主要使用hexo-next进行页面配置"><a href="#编写代码-主要使用hexo-next进行页面配置" class="headerlink" title="编写代码-主要使用hexo-next进行页面配置"></a>编写代码-主要使用hexo-next进行页面配置</h3><p>之前一直想着自己找一个网站模版进行搭建，想着用自己的技术实现，后来发现自己太懒了，无意间发现了node环境下的hexo,对于我这种稍微熟悉node的人来说，算是一个比较好的福利了，具体的hexo如何配置搭建，就不具体说了，可以直接进行官方文档 <strong><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo</a></strong> 查看学习，支持切换简体中文</p>
+<p><strong>进行一个大概的搭建说明吧</strong></p>
+<h4 id="1、配置node环境"><a href="#1、配置node环境" class="headerlink" title="1、配置node环境"></a>1、配置node环境</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 		去官方下载相应的node版本（建议下载稳定版本），Mac系统可以下nvm进行node版本的管理，下载多个版本</span></span><br><span class="line">node -v. <span class="comment">//查看是否安装成功</span></span><br><span class="line">npm -v. <span class="comment">// 查看npm是否安装成功，node安装成功后自动安装好npm</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h4 id="2、hexo安装、配置"><a href="#2、hexo安装、配置" class="headerlink" title="2、hexo安装、配置"></a>2、hexo安装、配置</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 安装hexo</span></span><br><span class="line">npm install -g hexo-cli. <span class="comment">//是否看着与安装vue很相似</span></span><br><span class="line"><span class="comment">//查看hexo 是否安装成功</span></span><br><span class="line">hexo --version</span><br><span class="line"><span class="comment">//1、构建页面</span></span><br><span class="line">hexo generate   <span class="comment">//缩写  hexo g</span></span><br><span class="line"><span class="comment">//2、启动页面</span></span><br><span class="line">hexo server   <span class="comment">//缩写hexo s   到这一步你就可以看到启动的localhost：4040。访问即可</span></span><br><span class="line"><span class="comment">//3、新增一个页面</span></span><br><span class="line">hexo <span class="keyword">new</span> &lt;pagename&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//新增页面前，建议先</span></span><br><span class="line">hexo clean. <span class="comment">//然后重复1、2步骤即可</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//至此，一个新的hexo架构的页面即搭建好了</span></span><br></pre></td></tr></table></figure>
 
+<h4 id="3、hero-主题选择"><a href="#3、hero-主题选择" class="headerlink" title="3、hero 主题选择"></a>3、hero 主题选择</h4><p>选择喜欢的主题进行blog的配置<strong><a href="[hexo](https://hexo.io/zh-cn/docs/)">theme</a></strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//主要先到相应的主题GitHub下载，例如next</span></span><br><span class="line">$ cd your-hexo-site  <span class="comment">// 进入你的构建路径</span></span><br><span class="line">$ git clone https:<span class="comment">//github.com/iissnan/hexo-theme-next themes/next</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//然后将clone的主题放置hexo文件下的theme下，设置hexo配置文件_config.yml 里的theme</span></span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<p>具体参考 <strong><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">next主题</a></strong> 配置，本站使用的也是next主题</p>
+<h3 id="服务器搭建-git-ssh"><a href="#服务器搭建-git-ssh" class="headerlink" title="服务器搭建 git-ssh"></a>服务器搭建 git-ssh</h3><h3 id="本地代码上传服务器"><a href="#本地代码上传服务器" class="headerlink" title="本地代码上传服务器"></a>本地代码上传服务器</h3><h3 id="服务器-nginx-配置"><a href="#服务器-nginx-配置" class="headerlink" title="服务器 nginx 配置"></a>服务器 nginx 配置</h3><h3 id="网站解析"><a href="#网站解析" class="headerlink" title="网站解析"></a>网站解析</h3><h3 id="正确访问"><a href="#正确访问" class="headerlink" title="正确访问"></a>正确访问</h3><hr>
+<p>这只是一个占位日志，周末有时间了我在细分搭建当中遇到的坑。每一个标题都应该详细说明。</p>
 <h3 id="鲁迅说"><a href="#鲁迅说" class="headerlink" title="鲁迅说"></a>鲁迅说</h3><blockquote>
 <p>你好象是一只牛，吃的是草，挤出的是牛奶</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">'zrobiao'</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>搭建模版</category>
+        <category>网站部署</category>
       </categories>
       <tags>
-        <tag>hello</tag>
+        <tag>nginx</tag>
+        <tag>云服务器</tag>
+        <tag>域名购买</tag>
+        <tag>sftp</tag>
+        <tag>hexo</tag>
+        <tag>next</tag>
       </tags>
   </entry>
 </search>
