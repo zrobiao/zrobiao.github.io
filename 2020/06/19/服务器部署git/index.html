@@ -22,31 +22,41 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#f40000","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="喜欢的事自然可以坚持，不喜欢的怎么也长久不了。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阿张">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="前言​        自从买了一个服务器之后，一直想着怎么折腾，最初只是进行一个简单的域名备案、进行HTTPS网站使用，方便微信小程序的开发，想着先搭建然后再慢慢完善自己的网站，后来一直懒、一直懒……直到域名到期提醒我，是应该去做点什么了。 ​        作为一个设计转前端的程序员，刚开始弄的时候全是自己Google，走了很多弯路，折腾了很久，但最终部署好自己的网站后，还是很喜悦！一直想着会在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务器部署git">
+<meta property="og:url" content="http://yoursite.com/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/index.html">
 <meta property="og:site_name" content="阿张">
-<meta property="og:description" content="喜欢的事自然可以坚持，不喜欢的怎么也长久不了。">
+<meta property="og:description" content="前言​        自从买了一个服务器之后，一直想着怎么折腾，最初只是进行一个简单的域名备案、进行HTTPS网站使用，方便微信小程序的开发，想着先搭建然后再慢慢完善自己的网站，后来一直懒、一直懒……直到域名到期提醒我，是应该去做点什么了。 ​        作为一个设计转前端的程序员，刚开始弄的时候全是自己Google，走了很多弯路，折腾了很久，但最终部署好自己的网站后，还是很喜悦！一直想着会在">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/git-ssh.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/adduser.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/ssh-ra.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/pub.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/author.png">
+<meta property="article:published_time" content="2020-06-19T06:34:32.000Z">
+<meta property="article:modified_time" content="2020-06-19T08:28:05.852Z">
 <meta property="article:author" content="zrobiao">
-<meta property="article:tag" content="node js html 个人日志  技术总结">
+<meta property="article:tag" content="服务器">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="ssh">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/git-ssh.png">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>阿张</title>
+  <title>服务器部署git | 阿张</title>
   
 
 
@@ -207,121 +217,10 @@ var _hmt = _hmt || [];
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/19/hexo-next/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="zrobiao">
-      <meta itemprop="description" content="喜欢的事自然可以坚持，不喜欢的怎么也长久不了。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿张">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/19/hexo-next/" class="post-title-link" itemprop="url">基于hero的next主题进行网站搭建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-19 14:42:43 / 修改时间：17:29:45" itemprop="dateCreated datePublished" datetime="2020-06-19T14:42:43+08:00">2020-06-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2/" itemprop="url" rel="index"><span itemprop="name">网站部署</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>很早之前就想搭建属于自己的个人网站，最初的想法是找模板，然后进行简单的编写，但生活总是那么给你带来那些不可控的因素；无意间看到了hexo，基于node、npm即可安装相应的依赖包进行构建。主要是基于Markdown文件，可以随时随地进行编写，编写完毕后直接上传部署服务即可方便，实在方便。</p>
-<p>当然缺点也很明显，需要搭建相应的开发环境，每换一次电脑就得重新进行配置，对于不懂开发的人不太友好。</p>
-<p>接下来我就开始记录这一次的搭建旅程了。</p>
-<h1 id="搭建node环境"><a href="#搭建node环境" class="headerlink" title="搭建node环境"></a>搭建node环境</h1><p>这里我进行window、Mac系统的node安装说明，因为之前一直使用的window的系统，最近突然转入Mac系统后，对node环境的安装也是花了一上午来配置，特此记录</p>
-<ul>
-<li>win系统可直接去官方下载相应的node版本（建议下载稳定版本）解压安装即可</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v. <span class="comment">//查看是否安装成功</span></span><br><span class="line">npm -v. <span class="comment">// 查看npm是否安装成功，node安装成功后自动安装好npm</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Mac系统可以下nvm进行node版本的管理，下载多个版本</li>
-</ul>
-<p>使用Homebrew 进行nvm的安装 ，具体如何安装Homebrew可进行网上相关教程</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">brew install nvm </span><br><span class="line"><span class="comment">//出现既是安装成功 ==&gt; Summary</span></span><br><span class="line"><span class="comment">// /usr/local/Cellar/nvm/0.33.11: 7 files, 138.6KB, built in 13 seconds</span></span><br><span class="line">nvm list  <span class="comment">//  查找本电脑上所有的node版本</span></span><br><span class="line">nvm install &lt;version&gt; <span class="comment">// 安装指定版本node</span></span><br><span class="line">nvm use &lt;version&gt; <span class="comment">// 切换使用指定的版本node</span></span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.jianshu.com/p/bdbc51fa8ce6" target="_blank" rel="noopener">可参考Mac-nvm安装指导</a></p>
-<h1 id="构建hexo配置，使用next主题"><a href="#构建hexo配置，使用next主题" class="headerlink" title="构建hexo配置，使用next主题"></a>构建hexo配置，使用next主题</h1><p>具体的hexo如何配置搭建，可以直接进行官方文档 <strong><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo</a></strong> 查看学习，支持切换简体中文，本人比较喜欢官方文档说明，这样容易找错。</p>
-<h2 id="hexo安装、配置"><a href="#hexo安装、配置" class="headerlink" title="hexo安装、配置"></a>hexo安装、配置</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装hexo</span></span><br><span class="line">npm install -g hexo-cli. <span class="comment">//是否看着与安装vue很相似</span></span><br><span class="line"><span class="comment">//查看hexo 是否安装成功</span></span><br><span class="line">hexo --version</span><br><span class="line"><span class="comment">//1、构建页面</span></span><br><span class="line">hexo generate   <span class="comment">//缩写  hexo g</span></span><br><span class="line"><span class="comment">//2、启动页面</span></span><br><span class="line">hexo server   <span class="comment">//缩写hexo s   到这一步你就可以看到启动的localhost：4040。访问即可</span></span><br><span class="line"><span class="comment">//3、新增一个页面</span></span><br><span class="line">hexo <span class="keyword">new</span> &lt;pagename&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//新增页面后，建议先</span></span><br><span class="line">hexo clean =&gt; heox g =&gt; hexo s<span class="comment">//然后即可启动了，hexo主要是为了清除缓存，防止出现不知名的错误</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//至此，一个新的hexo架构的页面即搭建好了</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="hero-主题选择"><a href="#hero-主题选择" class="headerlink" title="hero 主题选择"></a>hero 主题选择</h2><p>选择喜欢的主题进行blog的配置<strong><a href="[hexo](https://hexo.io/zh-cn/docs/)">theme</a></strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//主要先到相应的主题GitHub下载，例如next</span></span><br><span class="line">$ cd your-hexo-site  <span class="comment">// 进入你的构建路径</span></span><br><span class="line">$ git clone https:<span class="comment">//github.com/iissnan/hexo-theme-next themes/next</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//然后将clone的主题放置hexo文件下的theme下，设置hexo配置文件_config.yml 里的theme</span></span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-
-<p>具体参考 <strong><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">next主题</a></strong> 配置，本站使用的也是next主题</p>
-<h1 id="一些特别说明-–-其它插件的使用"><a href="#一些特别说明-–-其它插件的使用" class="headerlink" title="一些特别说明 – 其它插件的使用"></a>一些特别说明 – 其它插件的使用</h1><h2 id="背景播放器使用"><a href="#背景播放器使用" class="headerlink" title="背景播放器使用"></a>背景播放器使用</h2><ul>
-<li>使用<a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener">APlayer</a>进行播放器的选择，下载到本地，解压后将<code>dist</code>文件夹复制到<code>themes\next\source</code>文件夹下。</li>
-<li>新建<code>themes\next\source\dist\music.js</code>文件，添加内容</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ap = <span class="keyword">new</span> APlayer(&#123;</span><br><span class="line">    container: <span class="built_in">document</span>.getElementById(<span class="string">'aplayer'</span>),</span><br><span class="line">    autoplay: <span class="literal">true</span>,</span><br><span class="line">    mini:<span class="literal">true</span>,</span><br><span class="line">    loop:<span class="string">"all"</span>,</span><br><span class="line">    order:<span class="string">'random'</span>,</span><br><span class="line">    audio: [</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">"dylanf"</span>,  <span class="comment">//歌曲名称</span></span><br><span class="line">        artist: <span class="string">'卡农'</span>,  <span class="comment">// 歌曲唱作者</span></span><br><span class="line">        url: <span class="string">'/dist/dylanf.mp3'</span>,   <span class="comment">//歌曲的路径链接，可使用网上链接，此处使用下载至本地资源文件夹进行播放，当然这种形式会对自己的服务器造成一定的压力，慎重考虑</span></span><br><span class="line">        cover: <span class="string">'/images/cover3.jpg'</span>,   <span class="comment">// 歌曲封面图，此处使用的同样是本地路径，支持外部链接</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">"dark"</span>,</span><br><span class="line">        artist: <span class="string">'吉他'</span>,</span><br><span class="line">        url: <span class="string">'/dist/dark.mp3'</span>,</span><br><span class="line">        cover: <span class="string">'/images/cover2.jpg'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">"moon"</span>,</span><br><span class="line">        artist: <span class="string">'moon'</span>,</span><br><span class="line">        url: <span class="string">'/dist/riben.mp3'</span>,</span><br><span class="line">        cover: <span class="string">'/images/cover1.jpg'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">"sea"</span>,</span><br><span class="line">        artist: <span class="string">'佚名'</span>,</span><br><span class="line">        url: <span class="string">'/dist/sea.mp3'</span>,</span><br><span class="line">        cover: <span class="string">'/images/cover4.jpg'</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>具体的中文配置文档：<a href="https://aplayer.js.org/#/zh-Hans/" target="_blank" rel="noopener">APlayer 中文文档</a></li>
-<li>打开<code>themes\next\layout\_layout.swig</code>文件，将以下代码添加至文件中</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"/dist/APlayer.min.css"</span>&gt;</span><br><span class="line">&lt;div id=<span class="string">"aplayer"</span>&gt;&lt;<span class="regexp">/div&gt;   /</span><span class="regexp">/ 解析的音频播放器容器，ID值对应music.js中的ID值，此容器可放置到自己喜欢的位置</span></span><br><span class="line"><span class="regexp">&lt;script type="text/</span>javascript<span class="string">" src="</span>/dist/APlayer.min.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script type="</span>text/javascript<span class="string">" src="</span>/dist/music.js<span class="string">"&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>如图我本站放在了aside边缘,</p>
-<p><img src="/2020/06/19/hexo-next/music.png" alt="背景音乐播放器位置"></p>
-<p>具体代码如下，自己的容器，写一个class即可调节相应的样式，这个就不多说了</p>
-<p><img src="/2020/06/19/hexo-next/music-path.png" alt="代码位置"></p>
-<p>至此一个简易的网页播放器就部署好了！</p>
-<hr>
-<p>当然还有很多好用的插件可以来丰富一个网站，我这里只是举例播放器，具体的操作可以进行搜索获知。</p>
-<h3 id="鲁迅说"><a href="#鲁迅说" class="headerlink" title="鲁迅说"></a>鲁迅说</h3><blockquote>
-<p>你好象是一只牛，吃的是草，挤出的是牛奶</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -337,10 +236,9 @@ var _hmt = _hmt || [];
       <meta itemprop="name" content="阿张">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/" class="post-title-link" itemprop="url">服务器部署git</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          服务器部署git
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -363,6 +261,13 @@ var _hmt = _hmt || [];
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -373,7 +278,7 @@ var _hmt = _hmt || [];
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​        自从买了一个服务器之后，一直想着怎么折腾，最初只是进行一个简单的域名备案、进行HTTPS网站使用，方便微信小程序的开发，想着先搭建然后再慢慢完善自己的网站，后来一直懒、一直懒……直到域名到期提醒我，是应该去做点什么了。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​        自从买了一个服务器之后，一直想着怎么折腾，最初只是进行一个简单的域名备案、进行HTTPS网站使用，方便微信小程序的开发，想着先搭建然后再慢慢完善自己的网站，后来一直懒、一直懒……直到域名到期提醒我，是应该去做点什么了。</p>
 <p>​        作为一个设计转前端的程序员，刚开始弄的时候全是自己Google，走了很多弯路，折腾了很久，但最终部署好自己的网站后，还是很喜悦！一直想着会在这个网站里记录很多很多，但是部署成功后也因为其它事情，导致就寥寥一篇占位文章😹，现在就从服务器部署来谈论我整个建站的过程吧</p>
 <h1 id="拥有自己的服务器"><a href="#拥有自己的服务器" class="headerlink" title="拥有自己的服务器"></a>拥有自己的服务器</h1><p>​        拥有服务器很简单，去阿里云、腾讯云……其它提供云服务支持的商家购买租用适合自己的服务器（服务器有点小贵，自己考虑了。），因为腾讯云说支持较好的微信、小程序开发；正好自己在工作中使用的大多也是腾讯相关的业务，所以我就与朋友在双11租用了一台2核4G 3M带宽服务器，已经能够满足个人网站的开发了。</p>
 <h1 id="服务器安装Git、ssh"><a href="#服务器安装Git、ssh" class="headerlink" title="服务器安装Git、ssh"></a>服务器安装Git、ssh</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install git   // 是否安装成功则可输入git --version</span><br><span class="line">// git version 1.8.3.1 字样出现则为成功</span><br><span class="line">sudo apt-<span class="keyword">get</span> install ssh</span><br></pre></td></tr></table></figure>
@@ -466,21 +371,51 @@ var _hmt = _hmt || [];
 <p>实际搭建中入坑不少，在服务端与客户端中的key移植时一直没成功，一直提示我没有相应权限进行clone，报这个错我就知道是我没有把公钥追加好到authorized_keys文件中，特此也非常感谢大神的文章指导</p>
 <p>大神参考 <a href="https://www.onelib.biz/blog/a/581047797628141c0fbfb0ed" target="_blank" rel="noopener">干货 | 简单几步搭建一个远程git服务器</a></p>
 
-      
     </div>
 
     
     
     
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/Wechatpay.jpeg" alt="zrobiao 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"><i class="fa fa-tag"></i> 服务器</a>
+              <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+              <a href="/tags/ssh/" rel="tag"><i class="fa fa-tag"></i> ssh</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/19/hexo-next/" rel="next" title="基于hero的next主题进行网站搭建">
+      基于hero的next主题进行网站搭建 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -533,6 +468,7 @@ var _hmt = _hmt || [];
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拥有自己的服务器"><span class="nav-number">2.</span> <span class="nav-text">拥有自己的服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器安装Git、ssh"><span class="nav-number">3.</span> <span class="nav-text">服务器安装Git、ssh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在服务器新建属于自己的用户"><span class="nav-number">4.</span> <span class="nav-text">在服务器新建属于自己的用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器进行配置信息"><span class="nav-number">5.</span> <span class="nav-text">服务器进行配置信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户生产key"><span class="nav-number">6.</span> <span class="nav-text">用户生产key</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端将私钥放入客户端的工作目录下"><span class="nav-number">7.</span> <span class="nav-text">客户端将私钥放入客户端的工作目录下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器将公钥追加到服务器的authorized-keys文件中"><span class="nav-number">8.</span> <span class="nav-text">服务器将公钥追加到服务器的authorized_keys文件中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器初始化一个bare的git仓库"><span class="nav-number">9.</span> <span class="nav-text">服务器初始化一个bare的git仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在客户端Clone远程的代码仓库"><span class="nav-number">10.</span> <span class="nav-text">在客户端Clone远程的代码仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">11.</span> <span class="nav-text">说明</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -1,28 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>个人网站部署-基于hero-next模版</title>
-    <url>/2020/06/10/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h3 id="建站前"><a href="#建站前" class="headerlink" title="建站前"></a>建站前</h3><p>通过之前的购买域名、租用的云服务器，到使用 node 环境的 hexo 下的 next 主题，进行个人网站的部署。前后花费了一年多的时间，只有这个时候才能更加看出我的懒惰，总是各种原因说辞（白花了一年时间来购买域名……）</p>
-<p>通过这次的个人网站部署，对于域名与云服务器的操作有了更加深的认识，一些配置问题折腾了很久，环境配置错误也让我深刻的意识到自己是多么的粗心大意，但网站部署后的喜悦还是无比的开心。</p>
-<p>接下来就让我愉快😂的为这次部署做一个总结吧</p>
-<h3 id="域名申请"><a href="#域名申请" class="headerlink" title="域名申请"></a>域名申请</h3><p>通过阿里云、腾讯云进行自己喜欢的域名进行购买，完全在于你开心，.com、.cn、.vip……都可以；</p>
-<p>在这我是腾讯云进行的域名购买</p>
-<h3 id="服务器租用"><a href="#服务器租用" class="headerlink" title="服务器租用"></a>服务器租用</h3><p>因为之前是为了进行小程序的开发，所以为了更加方便的开发（官方说的，其实应该也没多大影响），就与朋友一起双11租用了2年了云服务器，优惠买的配置开发绝对够了！</p>
-<h3 id="编写代码-主要使用hexo-next进行页面配置"><a href="#编写代码-主要使用hexo-next进行页面配置" class="headerlink" title="编写代码-主要使用hexo-next进行页面配置"></a>编写代码-主要使用hexo-next进行页面配置</h3><p>之前一直想着自己找一个网站模版进行搭建，想着用自己的技术实现，后来发现自己太懒了，无意间发现了node环境下的hexo,对于我这种稍微熟悉node的人来说，算是一个比较好的福利了，具体的hexo如何配置搭建，就不具体说了，可以直接进行官方文档 <strong><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo</a></strong> 查看学习，支持切换简体中文</p>
-<p><strong>进行一个大概的搭建说明吧</strong></p>
-<h4 id="1、配置node环境"><a href="#1、配置node环境" class="headerlink" title="1、配置node环境"></a>1、配置node环境</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 		去官方下载相应的node版本（建议下载稳定版本），Mac系统可以下nvm进行node版本的管理，下载多个版本</span></span><br><span class="line">node -v. <span class="comment">//查看是否安装成功</span></span><br><span class="line">npm -v. <span class="comment">// 查看npm是否安装成功，node安装成功后自动安装好npm</span></span><br></pre></td></tr></table></figure>
+    <title>基于hero的next主题进行网站搭建</title>
+    <url>/2020/06/19/hexo-next/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>很早之前就想搭建属于自己的个人网站，最初的想法是找模板，然后进行简单的编写，但生活总是那么给你带来那些不可控的因素；无意间看到了hexo，基于node、npm即可安装相应的依赖包进行构建。主要是基于Markdown文件，可以随时随地进行编写，编写完毕后直接上传部署服务即可方便，实在方便。</p>
+<p>当然缺点也很明显，需要搭建相应的开发环境，每换一次电脑就得重新进行配置，对于不懂开发的人不太友好。</p>
+<p>接下来我就开始记录这一次的搭建旅程了。</p>
+<h1 id="搭建node环境"><a href="#搭建node环境" class="headerlink" title="搭建node环境"></a>搭建node环境</h1><p>这里我进行window、Mac系统的node安装说明，因为之前一直使用的window的系统，最近突然转入Mac系统后，对node环境的安装也是花了一上午来配置，特此记录</p>
+<ul>
+<li>win系统可直接去官方下载相应的node版本（建议下载稳定版本）解压安装即可</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">node -v. <span class="comment">//查看是否安装成功</span></span><br><span class="line">npm -v. <span class="comment">// 查看npm是否安装成功，node安装成功后自动安装好npm</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>Mac系统可以下nvm进行node版本的管理，下载多个版本</li>
+</ul>
+<p>使用Homebrew 进行nvm的安装 ，具体如何安装Homebrew可进行网上相关教程</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">brew install nvm </span><br><span class="line"><span class="comment">//出现既是安装成功 ==&gt; Summary</span></span><br><span class="line"><span class="comment">// /usr/local/Cellar/nvm/0.33.11: 7 files, 138.6KB, built in 13 seconds</span></span><br><span class="line">nvm list  <span class="comment">//  查找本电脑上所有的node版本</span></span><br><span class="line">nvm install &lt;version&gt; <span class="comment">// 安装指定版本node</span></span><br><span class="line">nvm use &lt;version&gt; <span class="comment">// 切换使用指定的版本node</span></span><br></pre></td></tr></table></figure>
 
+<p><a href="https://www.jianshu.com/p/bdbc51fa8ce6" target="_blank" rel="noopener">可参考Mac-nvm安装指导</a></p>
+<h1 id="构建hexo配置，使用next主题"><a href="#构建hexo配置，使用next主题" class="headerlink" title="构建hexo配置，使用next主题"></a>构建hexo配置，使用next主题</h1><p>具体的hexo如何配置搭建，可以直接进行官方文档 <strong><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo</a></strong> 查看学习，支持切换简体中文，本人比较喜欢官方文档说明，这样容易找错。</p>
+<h2 id="hexo安装、配置"><a href="#hexo安装、配置" class="headerlink" title="hexo安装、配置"></a>hexo安装、配置</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 安装hexo</span></span><br><span class="line">npm install -g hexo-cli. <span class="comment">//是否看着与安装vue很相似</span></span><br><span class="line"><span class="comment">//查看hexo 是否安装成功</span></span><br><span class="line">hexo --version</span><br><span class="line"><span class="comment">//1、构建页面</span></span><br><span class="line">hexo generate   <span class="comment">//缩写  hexo g</span></span><br><span class="line"><span class="comment">//2、启动页面</span></span><br><span class="line">hexo server   <span class="comment">//缩写hexo s   到这一步你就可以看到启动的localhost：4040。访问即可</span></span><br><span class="line"><span class="comment">//3、新增一个页面</span></span><br><span class="line">hexo <span class="keyword">new</span> &lt;pagename&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//新增页面后，建议先</span></span><br><span class="line">hexo clean =&gt; heox g =&gt; hexo s<span class="comment">//然后即可启动了，hexo主要是为了清除缓存，防止出现不知名的错误</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//至此，一个新的hexo架构的页面即搭建好了</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="2、hexo安装、配置"><a href="#2、hexo安装、配置" class="headerlink" title="2、hexo安装、配置"></a>2、hexo安装、配置</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 安装hexo</span></span><br><span class="line">npm install -g hexo-cli. <span class="comment">//是否看着与安装vue很相似</span></span><br><span class="line"><span class="comment">//查看hexo 是否安装成功</span></span><br><span class="line">hexo --version</span><br><span class="line"><span class="comment">//1、构建页面</span></span><br><span class="line">hexo generate   <span class="comment">//缩写  hexo g</span></span><br><span class="line"><span class="comment">//2、启动页面</span></span><br><span class="line">hexo server   <span class="comment">//缩写hexo s   到这一步你就可以看到启动的localhost：4040。访问即可</span></span><br><span class="line"><span class="comment">//3、新增一个页面</span></span><br><span class="line">hexo <span class="keyword">new</span> &lt;pagename&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//新增页面前，建议先</span></span><br><span class="line">hexo clean. <span class="comment">//然后重复1、2步骤即可</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//至此，一个新的hexo架构的页面即搭建好了</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3、hero-主题选择"><a href="#3、hero-主题选择" class="headerlink" title="3、hero 主题选择"></a>3、hero 主题选择</h4><p>选择喜欢的主题进行blog的配置<strong><a href="[hexo](https://hexo.io/zh-cn/docs/)">theme</a></strong></p>
+<h2 id="hero-主题选择"><a href="#hero-主题选择" class="headerlink" title="hero 主题选择"></a>hero 主题选择</h2><p>选择喜欢的主题进行blog的配置<strong><a href="[hexo](https://hexo.io/zh-cn/docs/)">theme</a></strong></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//主要先到相应的主题GitHub下载，例如next</span></span><br><span class="line">$ cd your-hexo-site  <span class="comment">// 进入你的构建路径</span></span><br><span class="line">$ git clone https:<span class="comment">//github.com/iissnan/hexo-theme-next themes/next</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//然后将clone的主题放置hexo文件下的theme下，设置hexo配置文件_config.yml 里的theme</span></span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
 
 <p>具体参考 <strong><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">next主题</a></strong> 配置，本站使用的也是next主题</p>
-<h3 id="服务器搭建-git-ssh"><a href="#服务器搭建-git-ssh" class="headerlink" title="服务器搭建 git-ssh"></a>服务器搭建 git-ssh</h3><h3 id="本地代码上传服务器"><a href="#本地代码上传服务器" class="headerlink" title="本地代码上传服务器"></a>本地代码上传服务器</h3><h3 id="服务器-nginx-配置"><a href="#服务器-nginx-配置" class="headerlink" title="服务器 nginx 配置"></a>服务器 nginx 配置</h3><h3 id="网站解析"><a href="#网站解析" class="headerlink" title="网站解析"></a>网站解析</h3><h3 id="正确访问"><a href="#正确访问" class="headerlink" title="正确访问"></a>正确访问</h3><hr>
-<p>这只是一个占位日志，周末有时间了我在细分搭建当中遇到的坑。每一个标题都应该详细说明。</p>
+<h1 id="一些特别说明-–-其它插件的使用"><a href="#一些特别说明-–-其它插件的使用" class="headerlink" title="一些特别说明 – 其它插件的使用"></a>一些特别说明 – 其它插件的使用</h1><h2 id="背景播放器使用"><a href="#背景播放器使用" class="headerlink" title="背景播放器使用"></a>背景播放器使用</h2><ul>
+<li>使用<a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener">APlayer</a>进行播放器的选择，下载到本地，解压后将<code>dist</code>文件夹复制到<code>themes\next\source</code>文件夹下。</li>
+<li>新建<code>themes\next\source\dist\music.js</code>文件，添加内容</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> ap = <span class="keyword">new</span> APlayer(&#123;</span><br><span class="line">    container: <span class="built_in">document</span>.getElementById(<span class="string">'aplayer'</span>),</span><br><span class="line">    autoplay: <span class="literal">true</span>,</span><br><span class="line">    mini:<span class="literal">true</span>,</span><br><span class="line">    loop:<span class="string">"all"</span>,</span><br><span class="line">    order:<span class="string">'random'</span>,</span><br><span class="line">    audio: [</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">"dylanf"</span>,  <span class="comment">//歌曲名称</span></span><br><span class="line">        artist: <span class="string">'卡农'</span>,  <span class="comment">// 歌曲唱作者</span></span><br><span class="line">        url: <span class="string">'/dist/dylanf.mp3'</span>,   <span class="comment">//歌曲的路径链接，可使用网上链接，此处使用下载至本地资源文件夹进行播放，当然这种形式会对自己的服务器造成一定的压力，慎重考虑</span></span><br><span class="line">        cover: <span class="string">'/images/cover3.jpg'</span>,   <span class="comment">// 歌曲封面图，此处使用的同样是本地路径，支持外部链接</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">"dark"</span>,</span><br><span class="line">        artist: <span class="string">'吉他'</span>,</span><br><span class="line">        url: <span class="string">'/dist/dark.mp3'</span>,</span><br><span class="line">        cover: <span class="string">'/images/cover2.jpg'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">"moon"</span>,</span><br><span class="line">        artist: <span class="string">'moon'</span>,</span><br><span class="line">        url: <span class="string">'/dist/riben.mp3'</span>,</span><br><span class="line">        cover: <span class="string">'/images/cover1.jpg'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">"sea"</span>,</span><br><span class="line">        artist: <span class="string">'佚名'</span>,</span><br><span class="line">        url: <span class="string">'/dist/sea.mp3'</span>,</span><br><span class="line">        cover: <span class="string">'/images/cover4.jpg'</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>具体的中文配置文档：<a href="https://aplayer.js.org/#/zh-Hans/" target="_blank" rel="noopener">APlayer 中文文档</a></li>
+<li>打开<code>themes\next\layout\_layout.swig</code>文件，将以下代码添加至文件中</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"/dist/APlayer.min.css"</span>&gt;</span><br><span class="line">&lt;div id=<span class="string">"aplayer"</span>&gt;&lt;<span class="regexp">/div&gt;   /</span><span class="regexp">/ 解析的音频播放器容器，ID值对应music.js中的ID值，此容器可放置到自己喜欢的位置</span></span><br><span class="line"><span class="regexp">&lt;script type="text/</span>javascript<span class="string">" src="</span>/dist/APlayer.min.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script type="</span>text/javascript<span class="string">" src="</span>/dist/music.js<span class="string">"&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如图我本站放在了aside边缘,</p>
+<p><img src="/2020/06/19/hexo-next/music.png" alt="背景音乐播放器位置"></p>
+<p>具体代码如下，自己的容器，写一个class即可调节相应的样式，这个就不多说了</p>
+<p><img src="/2020/06/19/hexo-next/music-path.png" alt="代码位置"></p>
+<p>至此一个简易的网页播放器就部署好了！</p>
+<hr>
+<p>当然还有很多好用的插件可以来丰富一个网站，我这里只是举例播放器，具体的操作可以进行搜索获知。</p>
 <h3 id="鲁迅说"><a href="#鲁迅说" class="headerlink" title="鲁迅说"></a>鲁迅说</h3><blockquote>
 <p>你好象是一只牛，吃的是草，挤出的是牛奶</p>
 </blockquote>
@@ -31,12 +53,113 @@
         <category>网站部署</category>
       </categories>
       <tags>
-        <tag>nginx</tag>
-        <tag>云服务器</tag>
-        <tag>域名购买</tag>
-        <tag>sftp</tag>
         <tag>hexo</tag>
         <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>服务器部署git</title>
+    <url>/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​        自从买了一个服务器之后，一直想着怎么折腾，最初只是进行一个简单的域名备案、进行HTTPS网站使用，方便微信小程序的开发，想着先搭建然后再慢慢完善自己的网站，后来一直懒、一直懒……直到域名到期提醒我，是应该去做点什么了。</p>
+<p>​        作为一个设计转前端的程序员，刚开始弄的时候全是自己Google，走了很多弯路，折腾了很久，但最终部署好自己的网站后，还是很喜悦！一直想着会在这个网站里记录很多很多，但是部署成功后也因为其它事情，导致就寥寥一篇占位文章😹，现在就从服务器部署来谈论我整个建站的过程吧</p>
+<h1 id="拥有自己的服务器"><a href="#拥有自己的服务器" class="headerlink" title="拥有自己的服务器"></a>拥有自己的服务器</h1><p>​        拥有服务器很简单，去阿里云、腾讯云……其它提供云服务支持的商家购买租用适合自己的服务器（服务器有点小贵，自己考虑了。），因为腾讯云说支持较好的微信、小程序开发；正好自己在工作中使用的大多也是腾讯相关的业务，所以我就与朋友在双11租用了一台2核4G 3M带宽服务器，已经能够满足个人网站的开发了。</p>
+<h1 id="服务器安装Git、ssh"><a href="#服务器安装Git、ssh" class="headerlink" title="服务器安装Git、ssh"></a>服务器安装Git、ssh</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install git   // 是否安装成功则可输入git --version</span><br><span class="line">// git version 1.8.3.1 字样出现则为成功</span><br><span class="line">sudo apt-<span class="keyword">get</span> install ssh</span><br></pre></td></tr></table></figure>
+
+<p>图片：</p>
+<p><img src="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/git-ssh.png" alt="git-ssh安装情况"></p>
+<h1 id="在服务器新建属于自己的用户"><a href="#在服务器新建属于自己的用户" class="headerlink" title="在服务器新建属于自己的用户"></a>在服务器新建属于自己的用户</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">sudo adduser &lt;server&gt;  <span class="comment">//创建一个名为server的用户  管理员账号的话不需要加sudo  在/home下有server文件夹即表示用户新建成功</span></span><br><span class="line">passwd &lt;server&gt;   <span class="comment">// 进行server密码设置</span></span><br></pre></td></tr></table></figure>
+
+<p>图片</p>
+<p><img src="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/adduser.png" alt="创建一个新用户"></p>
+<blockquote>
+<p>更改用户 server 的密码 。<br>新的 密码：<br>重新输入新的 密码：<br>passwd：所有的身份验证令牌已经成功更新。</p>
+</blockquote>
+<h1 id="服务器进行配置信息"><a href="#服务器进行配置信息" class="headerlink" title="服务器进行配置信息"></a>服务器进行配置信息</h1><p>使用刚才的用户进行服务器登录，然后进入用户目录，进行ssh信息的配置</p>
+<ul>
+<li>在server用户文件夹下，创建.ssh文件夹</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mkdir .ssh  <span class="comment">//.ssh表示隐藏文件  文件查看使用ls -a即可查看</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在.ssh中touch authorized_keys文件</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 进入.ssh文件夹</span></span><br><span class="line">cd ./.ssh</span><br><span class="line"><span class="comment">//创建authorized_keys文件</span></span><br><span class="line">touch authorized_keys</span><br></pre></td></tr></table></figure>
+
+<h1 id="用户生产key"><a href="#用户生产key" class="headerlink" title="用户生产key"></a>用户生产key</h1><p>这里主要生成服务端与客户端单一相连的key，可以在客户端生成、也可以在服务端生成，只要最终获取到</p>
+<ul>
+<li>私钥</li>
+<li>公钥</li>
+</ul>
+<p>即可。</p>
+<p>下面以在客户端生成为例子：</p>
+<p>进入终端bash，输入命令</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+
+<p>之后会要求输入一个用户名，我输入的是Mike。后面的直接按回车即可。（如果你希望在push或pull前仍要输入密码，则在这里进行设置；这样即使有人拿到了私钥，不知道这个密码的话也不能操作）</p>
+<p><img src="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/ssh-ra.png" alt="ssh获取"></p>
+<p>完成后会生成两个文件Mike、Mike.pub，分别是私钥和公钥</p>
+<p><img src="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/pub.png" alt="ssh获取"></p>
+<h1 id="客户端将私钥放入客户端的工作目录下"><a href="#客户端将私钥放入客户端的工作目录下" class="headerlink" title="客户端将私钥放入客户端的工作目录下"></a>客户端将私钥放入客户端的工作目录下</h1><p>查看当前客户端工作目录：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~ &#x2F;&#x2F; 进入当前用户的根目录</span><br><span class="line">pwd   &#x2F;&#x2F;查看当前用户的目录</span><br></pre></td></tr></table></figure>
+
+<p>将Mike文件放入该路径（我的是C;/Users/zrobiao/）下的.ssh文件夹(如果用户目录没有.ssh，则新建就好)中；如果是第一次搭建，还要新建一个config的文件，并写入以下内容：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">host git-server </span><br><span class="line">    user server   <span class="comment">// 这里填写你登录服务器的用户名</span></span><br><span class="line">    hostname <span class="number">119.29</span><span class="number">.147</span>.xxx  <span class="comment">// 这里写入你的服务器地址</span></span><br><span class="line">    port <span class="number">22</span> </span><br><span class="line">    identityfile ~<span class="regexp">/.ssh/</span>Mike</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意除第一行，其余要缩进一个tab</li>
+<li>这里的Mike替换为自己之前创建key时输入的用户名</li>
+<li>hostname 后面替换为你的服务器IP地址</li>
+</ul>
+<blockquote>
+<p>注意，config文件权限不能设置为<code>777</code>！设置为 <code>600</code> 即可。</p>
+</blockquote>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">chmod <span class="number">600</span> config</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> Linux系统的操作是一样的：在用户的工作目录下创建一个文件夹 <code>.ssh</code>（如果已有了就不必创建了），然后把config文件写入这个文件夹中，并将你的私钥文件也放入这里。</p>
+</blockquote>
+<h1 id="服务器将公钥追加到服务器的authorized-keys文件中"><a href="#服务器将公钥追加到服务器的authorized-keys文件中" class="headerlink" title="服务器将公钥追加到服务器的authorized_keys文件中"></a>服务器将公钥追加到服务器的authorized_keys文件中</h1><ul>
+<li>进入服务器用户目录，文章前篇说到的.ssh文件，打开authorized_keys文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim authorized_keys</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将公钥的内容追加到此文件中，如下图</li>
+</ul>
+<p><img src="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/author.png" alt="追加公钥进入此文件"></p>
+<h1 id="服务器初始化一个bare的git仓库"><a href="#服务器初始化一个bare的git仓库" class="headerlink" title="服务器初始化一个bare的git仓库"></a>服务器初始化一个bare的git仓库</h1><ul>
+<li>在服务器server用户的文件夹下创建一个文件夹repo（名字任意）用以存放代码仓库，进入此文件夹，开始创建bare的git仓库</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">cd ./repo</span><br><span class="line">git init —bare test.git</span><br></pre></td></tr></table></figure>
+
+<p>至此，服务器端的git服务器就搭建好了；接下来，要在客户端进行clone和push操作。</p>
+<h1 id="在客户端Clone远程的代码仓库"><a href="#在客户端Clone远程的代码仓库" class="headerlink" title="在客户端Clone远程的代码仓库"></a>在客户端Clone远程的代码仓库</h1><p>进入你的工程目录 进行Git clone 即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git-server:&#x2F;home&#x2F;server&#x2F;repo&#x2F;test.git</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>git-server：表示我们在config文件配置的服务器IP地址，直接写“git-server”即可，当然，你也可以修改config文件里的名字</li>
+<li>/home/server/repo/test.git：这个是远程服务器的仓库地址，按照实际情况自行修改</li>
+</ul>
+<p>这样，会在你客户端的工程文件夹下创建一个名为test的文件夹（.git会被省略）。<br>我们可以做一个测试，在gitclient/test/test文件夹中添加一个文件，并提交。</p>
+<p>推送到远程：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git push git-server:<span class="regexp">/home/</span>server/repo/test.git master</span><br></pre></td></tr></table></figure>
+
+<p>注意，这里的master代表推送到master分支，如果要推送到其他分支，修改它。</p>
+<p>至此，自己服务器搭建的Git仓库就可以使用了。</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol>
+<li>客户端中ssh登录，会默认读取用户目录下.ssh文件夹的config文件ssh配置信息。</li>
+<li>不论客户端还是服务器端，生成的公钥.pub应拷贝到服务器上，<strong>私key自己使用。私钥一旦泄漏</strong>，任何人都可以通过该私钥提交代码。</li>
+</ol>
+<p>实际搭建中入坑不少，在服务端与客户端中的key移植时一直没成功，一直提示我没有相应权限进行clone，报这个错我就知道是我没有把公钥追加好到authorized_keys文件中，特此也非常感谢大神的文章指导</p>
+<p>大神参考 <a href="https://www.onelib.biz/blog/a/581047797628141c0fbfb0ed" target="_blank" rel="noopener">干货 | 简单几步搭建一个远程git服务器</a></p>
+]]></content>
+      <categories>
+        <category>网站部署</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+        <tag>git</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
 </search>

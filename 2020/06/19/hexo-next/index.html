@@ -22,31 +22,37 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#f40000","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="喜欢的事自然可以坚持，不喜欢的怎么也长久不了。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阿张">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="前言很早之前就想搭建属于自己的个人网站，最初的想法是找模板，然后进行简单的编写，但生活总是那么给你带来那些不可控的因素；无意间看到了hexo，基于node、npm即可安装相应的依赖包进行构建。主要是基于Markdown文件，可以随时随地进行编写，编写完毕后直接上传部署服务即可方便，实在方便。 当然缺点也很明显，需要搭建相应的开发环境，每换一次电脑就得重新进行配置，对于不懂开发的人不太友好。 接下来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于hero的next主题进行网站搭建">
+<meta property="og:url" content="http://yoursite.com/2020/06/19/hexo-next/index.html">
 <meta property="og:site_name" content="阿张">
-<meta property="og:description" content="喜欢的事自然可以坚持，不喜欢的怎么也长久不了。">
+<meta property="og:description" content="前言很早之前就想搭建属于自己的个人网站，最初的想法是找模板，然后进行简单的编写，但生活总是那么给你带来那些不可控的因素；无意间看到了hexo，基于node、npm即可安装相应的依赖包进行构建。主要是基于Markdown文件，可以随时随地进行编写，编写完毕后直接上传部署服务即可方便，实在方便。 当然缺点也很明显，需要搭建相应的开发环境，每换一次电脑就得重新进行配置，对于不懂开发的人不太友好。 接下来">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/06/19/hexo-next/music.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/19/hexo-next/music-path.png">
+<meta property="article:published_time" content="2020-06-19T06:42:43.000Z">
+<meta property="article:modified_time" content="2020-06-19T09:29:45.033Z">
 <meta property="article:author" content="zrobiao">
-<meta property="article:tag" content="node js html 个人日志  技术总结">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="next">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/19/hexo-next/music.png">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/06/19/hexo-next/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>阿张</title>
+  <title>基于hero的next主题进行网站搭建 | 阿张</title>
   
 
 
@@ -207,9 +213,10 @@ var _hmt = _hmt || [];
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -225,10 +232,9 @@ var _hmt = _hmt || [];
       <meta itemprop="name" content="阿张">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/19/hexo-next/" class="post-title-link" itemprop="url">基于hero的next主题进行网站搭建</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          基于hero的next主题进行网站搭建
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -251,6 +257,13 @@ var _hmt = _hmt || [];
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -261,7 +274,7 @@ var _hmt = _hmt || [];
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>很早之前就想搭建属于自己的个人网站，最初的想法是找模板，然后进行简单的编写，但生活总是那么给你带来那些不可控的因素；无意间看到了hexo，基于node、npm即可安装相应的依赖包进行构建。主要是基于Markdown文件，可以随时随地进行编写，编写完毕后直接上传部署服务即可方便，实在方便。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>很早之前就想搭建属于自己的个人网站，最初的想法是找模板，然后进行简单的编写，但生活总是那么给你带来那些不可控的因素；无意间看到了hexo，基于node、npm即可安装相应的依赖包进行构建。主要是基于Markdown文件，可以随时随地进行编写，编写完毕后直接上传部署服务即可方便，实在方便。</p>
 <p>当然缺点也很明显，需要搭建相应的开发环境，每换一次电脑就得重新进行配置，对于不懂开发的人不太友好。</p>
 <p>接下来我就开始记录这一次的搭建旅程了。</p>
 <h1 id="搭建node环境"><a href="#搭建node环境" class="headerlink" title="搭建node环境"></a>搭建node环境</h1><p>这里我进行window、Mac系统的node安装说明，因为之前一直使用的window的系统，最近突然转入Mac系统后，对node环境的安装也是花了一上午来配置，特此记录</p>
@@ -307,180 +320,50 @@ var _hmt = _hmt || [];
 <p>你好象是一只牛，吃的是草，挤出的是牛奶</p>
 </blockquote>
 
-      
     </div>
 
     
     
     
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/Wechatpay.jpeg" alt="zrobiao 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="zrobiao">
-      <meta itemprop="description" content="喜欢的事自然可以坚持，不喜欢的怎么也长久不了。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿张">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/" class="post-title-link" itemprop="url">服务器部署git</a>
-        </h2>
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+              <a href="/tags/next/" rel="tag"><i class="fa fa-tag"></i> next</a>
+          </div>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
+        
 
-              <time title="创建时间：2020-06-19 14:34:32 / 修改时间：16:28:05" itemprop="dateCreated datePublished" datetime="2020-06-19T14:34:32+08:00">2020-06-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2/" itemprop="url" rel="index"><span itemprop="name">网站部署</span></a>
-                </span>
-            </span>
 
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​        自从买了一个服务器之后，一直想着怎么折腾，最初只是进行一个简单的域名备案、进行HTTPS网站使用，方便微信小程序的开发，想着先搭建然后再慢慢完善自己的网站，后来一直懒、一直懒……直到域名到期提醒我，是应该去做点什么了。</p>
-<p>​        作为一个设计转前端的程序员，刚开始弄的时候全是自己Google，走了很多弯路，折腾了很久，但最终部署好自己的网站后，还是很喜悦！一直想着会在这个网站里记录很多很多，但是部署成功后也因为其它事情，导致就寥寥一篇占位文章😹，现在就从服务器部署来谈论我整个建站的过程吧</p>
-<h1 id="拥有自己的服务器"><a href="#拥有自己的服务器" class="headerlink" title="拥有自己的服务器"></a>拥有自己的服务器</h1><p>​        拥有服务器很简单，去阿里云、腾讯云……其它提供云服务支持的商家购买租用适合自己的服务器（服务器有点小贵，自己考虑了。），因为腾讯云说支持较好的微信、小程序开发；正好自己在工作中使用的大多也是腾讯相关的业务，所以我就与朋友在双11租用了一台2核4G 3M带宽服务器，已经能够满足个人网站的开发了。</p>
-<h1 id="服务器安装Git、ssh"><a href="#服务器安装Git、ssh" class="headerlink" title="服务器安装Git、ssh"></a>服务器安装Git、ssh</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install git   // 是否安装成功则可输入git --version</span><br><span class="line">// git version 1.8.3.1 字样出现则为成功</span><br><span class="line">sudo apt-<span class="keyword">get</span> install ssh</span><br></pre></td></tr></table></figure>
-
-<p>图片：</p>
-<p><img src="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/git-ssh.png" alt="git-ssh安装情况"></p>
-<h1 id="在服务器新建属于自己的用户"><a href="#在服务器新建属于自己的用户" class="headerlink" title="在服务器新建属于自己的用户"></a>在服务器新建属于自己的用户</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser &lt;server&gt;  <span class="comment">//创建一个名为server的用户  管理员账号的话不需要加sudo  在/home下有server文件夹即表示用户新建成功</span></span><br><span class="line">passwd &lt;server&gt;   <span class="comment">// 进行server密码设置</span></span><br></pre></td></tr></table></figure>
-
-<p>图片</p>
-<p><img src="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/adduser.png" alt="创建一个新用户"></p>
-<blockquote>
-<p>更改用户 server 的密码 。<br>新的 密码：<br>重新输入新的 密码：<br>passwd：所有的身份验证令牌已经成功更新。</p>
-</blockquote>
-<h1 id="服务器进行配置信息"><a href="#服务器进行配置信息" class="headerlink" title="服务器进行配置信息"></a>服务器进行配置信息</h1><p>使用刚才的用户进行服务器登录，然后进入用户目录，进行ssh信息的配置</p>
-<ul>
-<li>在server用户文件夹下，创建.ssh文件夹</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir .ssh  <span class="comment">//.ssh表示隐藏文件  文件查看使用ls -a即可查看</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在.ssh中touch authorized_keys文件</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 进入.ssh文件夹</span></span><br><span class="line">cd ./.ssh</span><br><span class="line"><span class="comment">//创建authorized_keys文件</span></span><br><span class="line">touch authorized_keys</span><br></pre></td></tr></table></figure>
-
-<h1 id="用户生产key"><a href="#用户生产key" class="headerlink" title="用户生产key"></a>用户生产key</h1><p>这里主要生成服务端与客户端单一相连的key，可以在客户端生成、也可以在服务端生成，只要最终获取到</p>
-<ul>
-<li>私钥</li>
-<li>公钥</li>
-</ul>
-<p>即可。</p>
-<p>下面以在客户端生成为例子：</p>
-<p>进入终端bash，输入命令</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
-
-<p>之后会要求输入一个用户名，我输入的是Mike。后面的直接按回车即可。（如果你希望在push或pull前仍要输入密码，则在这里进行设置；这样即使有人拿到了私钥，不知道这个密码的话也不能操作）</p>
-<p><img src="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/ssh-ra.png" alt="ssh获取"></p>
-<p>完成后会生成两个文件Mike、Mike.pub，分别是私钥和公钥</p>
-<p><img src="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/pub.png" alt="ssh获取"></p>
-<h1 id="客户端将私钥放入客户端的工作目录下"><a href="#客户端将私钥放入客户端的工作目录下" class="headerlink" title="客户端将私钥放入客户端的工作目录下"></a>客户端将私钥放入客户端的工作目录下</h1><p>查看当前客户端工作目录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~ &#x2F;&#x2F; 进入当前用户的根目录</span><br><span class="line">pwd   &#x2F;&#x2F;查看当前用户的目录</span><br></pre></td></tr></table></figure>
-
-<p>将Mike文件放入该路径（我的是C;/Users/zrobiao/）下的.ssh文件夹(如果用户目录没有.ssh，则新建就好)中；如果是第一次搭建，还要新建一个config的文件，并写入以下内容：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">host git-server </span><br><span class="line">    user server   <span class="comment">// 这里填写你登录服务器的用户名</span></span><br><span class="line">    hostname <span class="number">119.29</span><span class="number">.147</span>.xxx  <span class="comment">// 这里写入你的服务器地址</span></span><br><span class="line">    port <span class="number">22</span> </span><br><span class="line">    identityfile ~<span class="regexp">/.ssh/</span>Mike</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>注意除第一行，其余要缩进一个tab</li>
-<li>这里的Mike替换为自己之前创建key时输入的用户名</li>
-<li>hostname 后面替换为你的服务器IP地址</li>
-</ul>
-<blockquote>
-<p>注意，config文件权限不能设置为<code>777</code>！设置为 <code>600</code> 即可。</p>
-</blockquote>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod <span class="number">600</span> config</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p> Linux系统的操作是一样的：在用户的工作目录下创建一个文件夹 <code>.ssh</code>（如果已有了就不必创建了），然后把config文件写入这个文件夹中，并将你的私钥文件也放入这里。</p>
-</blockquote>
-<h1 id="服务器将公钥追加到服务器的authorized-keys文件中"><a href="#服务器将公钥追加到服务器的authorized-keys文件中" class="headerlink" title="服务器将公钥追加到服务器的authorized_keys文件中"></a>服务器将公钥追加到服务器的authorized_keys文件中</h1><ul>
-<li>进入服务器用户目录，文章前篇说到的.ssh文件，打开authorized_keys文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim authorized_keys</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>将公钥的内容追加到此文件中，如下图</li>
-</ul>
-<p><img src="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/author.png" alt="追加公钥进入此文件"></p>
-<h1 id="服务器初始化一个bare的git仓库"><a href="#服务器初始化一个bare的git仓库" class="headerlink" title="服务器初始化一个bare的git仓库"></a>服务器初始化一个bare的git仓库</h1><ul>
-<li>在服务器server用户的文件夹下创建一个文件夹repo（名字任意）用以存放代码仓库，进入此文件夹，开始创建bare的git仓库</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ./repo</span><br><span class="line">git init —bare test.git</span><br></pre></td></tr></table></figure>
-
-<p>至此，服务器端的git服务器就搭建好了；接下来，要在客户端进行clone和push操作。</p>
-<h1 id="在客户端Clone远程的代码仓库"><a href="#在客户端Clone远程的代码仓库" class="headerlink" title="在客户端Clone远程的代码仓库"></a>在客户端Clone远程的代码仓库</h1><p>进入你的工程目录 进行Git clone 即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git-server:&#x2F;home&#x2F;server&#x2F;repo&#x2F;test.git</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>git-server：表示我们在config文件配置的服务器IP地址，直接写“git-server”即可，当然，你也可以修改config文件里的名字</li>
-<li>/home/server/repo/test.git：这个是远程服务器的仓库地址，按照实际情况自行修改</li>
-</ul>
-<p>这样，会在你客户端的工程文件夹下创建一个名为test的文件夹（.git会被省略）。<br>我们可以做一个测试，在gitclient/test/test文件夹中添加一个文件，并提交。</p>
-<p>推送到远程：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push git-server:<span class="regexp">/home/</span>server/repo/test.git master</span><br></pre></td></tr></table></figure>
-
-<p>注意，这里的master代表推送到master分支，如果要推送到其他分支，修改它。</p>
-<p>至此，自己服务器搭建的Git仓库就可以使用了。</p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol>
-<li>客户端中ssh登录，会默认读取用户目录下.ssh文件夹的config文件ssh配置信息。</li>
-<li>不论客户端还是服务器端，生成的公钥.pub应拷贝到服务器上，<strong>私key自己使用。私钥一旦泄漏</strong>，任何人都可以通过该私钥提交代码。</li>
-</ol>
-<p>实际搭建中入坑不少，在服务端与客户端中的key移植时一直没成功，一直提示我没有相应权限进行clone，报这个错我就知道是我没有把公钥追加好到authorized_keys文件中，特此也非常感谢大神的文章指导</p>
-<p>大神参考 <a href="https://www.onelib.biz/blog/a/581047797628141c0fbfb0ed" target="_blank" rel="noopener">干货 | 简单几步搭建一个远程git服务器</a></p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/19/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2git/" rel="prev" title="服务器部署git">
+      <i class="fa fa-chevron-left"></i> 服务器部署git
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -533,6 +416,7 @@ var _hmt = _hmt || [];
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建node环境"><span class="nav-number">2.</span> <span class="nav-text">搭建node环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构建hexo配置，使用next主题"><span class="nav-number">3.</span> <span class="nav-text">构建hexo配置，使用next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo安装、配置"><span class="nav-number">3.1.</span> <span class="nav-text">hexo安装、配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hero-主题选择"><span class="nav-number">3.2.</span> <span class="nav-text">hero 主题选择</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些特别说明-–-其它插件的使用"><span class="nav-number">4.</span> <span class="nav-text">一些特别说明 – 其它插件的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景播放器使用"><span class="nav-number">4.1.</span> <span class="nav-text">背景播放器使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#鲁迅说"><span class="nav-number">4.1.1.</span> <span class="nav-text">鲁迅说</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
